@@ -58,3 +58,12 @@ O código deve:
 - Manter **legibilidade**, com nomes claros de variáveis e funções  
 
 ---
+
+## Equipe de Desenvolvimento:
+
+- Integrante 1
+- Integrante 2
+- Integrante 3
+- Integrante 4
+- Integrante 5
+- Integrante 6
