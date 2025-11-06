@@ -61,9 +61,9 @@ O código deve:
 
 ## Equipe de Desenvolvimento:
 
-- Integrante 1
-- Integrante 2
-- Integrante 3
-- Integrante 4
-- Integrante 5
-- Integrante 6
+- Integrante 1: Arthur Vitorino
+- Integrante 2: Juan Riquelme
+- Integrante 3: Kelwin Karan
+- Integrante 4: Pedro Vitor
+- Integrante 5: Rafael Carrilho
+- Integrante 6: Victor Carraly
