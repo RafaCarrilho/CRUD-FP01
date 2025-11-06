@@ -20,4 +20,4 @@ def create ():
 repositorio = {}
 lista_recebida=create()
 
-repositorio ["{lista_recebida[0]}"= lista_recebida[1:4]]
+repositorio [lista_recebida[0]: lista_recebida[1-4]]
