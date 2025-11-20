@@ -1,8 +1,8 @@
 from datetime import datetime
 
-data_do_evento = input("Quando é a data do evento? (formato AAAA-MM-DD): ")
+data_do_evento = input("Quando é a data do evento? (formato DD/MM/AAAA): ")
 
-evento = datetime.strptime(data_do_evento, "%Y-%m-%d")
+evento = datetime.strptime(data_do_evento, "%d/%m/%Y")
 
 agora = datetime.now()
 
