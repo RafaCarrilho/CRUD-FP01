@@ -6,8 +6,15 @@ evento = datetime.strptime(data_do_evento, "%d/%m/%Y")
 
 agora = datetime.now()
 
-diferenca = evento - agora
+diferenca_dias = (evento - agora).days
 
-dias = diferenca.days
+anos = evento.year - agora.year
+meses = evento.month - agora.month
+total_meses = anos * 12 + meses
 
-print(f"Faltam: {dias} dias.")
+if evento.day < agora.day:
+    total_meses -= 1
+if total_meses >= 1:
+    diferenca_dias  = diferenca_dias - (total_meses*30)
+
+print(f"Faltam: {total_meses} meses e {diferenca_dias} dias.")
