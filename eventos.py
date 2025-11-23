@@ -1,4 +1,5 @@
 from arquivos import adc_arquivo
+from validacoes import validar_data, validar_orcamento, validar_nova_data, validar_novo_orcamento
 
 
 def create():
@@ -9,13 +10,13 @@ def create():
     tipo_de_evento = input("Tipo de evento? (Caso não saiba, digite '-')")
     lista.append(tipo_de_evento)
 
-    data_do_evento = input("Quando é a data do evento?  formato AAAA-MM-DD)")
+    data_do_evento = validar_data()
     lista.append(data_do_evento)
 
     local_de_evento = input("Local de evento? ")
     lista.append(local_de_evento)
 
-    orca_de_evento = float(input("Orçamento do evento? "))
+    orca_de_evento = validar_orcamento()
     lista.append(orca_de_evento)
     return lista
 
@@ -75,19 +76,17 @@ def alterador(repositorio):
                     local,
                     orca,
                 ]  # Crio um novo usando as variaveis que guardam as caracteristicas antigas
-            elif (
-                alterar == "2"
-            ):  # A Partir daqui, só precisa alterar o tipo requisitado e não mudar a chave
+            elif alterar == "2": # A Partir daqui, só precisa alterar o tipo requisitado e não mudar a chave
                 novo_tipo = input("Novo tipo de evento: ")
                 repositorio[chave][0] = novo_tipo
             elif alterar == "3":
-                nova_data = input("Nova data do evento: ")
+                nova_data = validar_nova_data()
                 repositorio[chave][1] = nova_data
             elif alterar == "4":
-                novo_local = input("Novo local do evento: ")
+                novo_local=input("Novo local do evento: ")
                 repositorio[chave][2] = novo_local
             elif alterar == "5":
-                novo_orca = float(input("Novo orçamento do evento: "))
+                novo_orca = validar_orcamento()
                 repositorio[chave][3] = novo_orca
     except:
         print()
