@@ -1,5 +1,5 @@
 from arquivos import adc_arquivo
-from validacoes import validar_data, validar_orcamento
+from validacoes import validar_data, validar_orcamento, validar_nova_data
 
 
 def create():
@@ -80,7 +80,7 @@ def alterador(repositorio):
                 novo_tipo = input("Novo tipo de evento: ")
                 repositorio[chave][0] = novo_tipo
             elif alterar == "3":
-                nova_data = validar_data()
+                nova_data = validar_nova_data()
                 repositorio[chave][1] = nova_data
             elif alterar == "4":
                 novo_local=input("Novo local do evento: ")
