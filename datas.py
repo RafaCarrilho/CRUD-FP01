@@ -1,7 +1,7 @@
 from datetime import datetime
 
+
 def contagem_regressiva(data_do_evento):
-    
     evento = datetime.strptime(data_do_evento, "%d/%m/%Y")
     agora = datetime.now()
 
@@ -14,7 +14,6 @@ def contagem_regressiva(data_do_evento):
     if evento.day < agora.day:
         total_meses -= 1
     if total_meses >= 1:
-        diferenca_dias  = diferenca_dias - (total_meses*30)
+        diferenca_dias = diferenca_dias - (total_meses * 30)
 
     return total_meses, diferenca_dias
-
