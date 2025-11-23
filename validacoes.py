@@ -23,7 +23,7 @@ def validar_orcamento():
         try:
             orcamento = float(input("qual o orcamento do evento: "))
             break
-        except valueError:
+        except ValueError:
             print("valor invalido")
             continue
     return orcamento
@@ -45,12 +45,13 @@ def validar_nova_data():
             print("data invalida")
             continue
     return data
+    
 def validar_novo_orcamento():
     while True:
         try:
             orcamento = float(input("Novo orçamento do evento: "))
             break
-        except valueError:
+        except ValueError:
             print("valor invalido")
             continue
     return orcamento
