@@ -27,3 +27,21 @@ def validar_orcamento():
             print("valor invalido")
             continue
     return orcamento
+
+def validar_nova_data():
+    while True:
+        try:
+            # tenta transformar a data, caso consiga vai retornar, se nao conseguir vai pedir outra data
+            data = input("Inserir nova data (formato DD/MM/AAAA): ")
+            evento = datetime.strptime(data, "%d/%m/%Y")
+            agora = datetime.now()
+            if (evento - agora).days > 0:
+                break
+            else:
+                print("data invalida")
+                continue
+        except ValueError:
+            # Se der erro, o formato ou a data são inválidos
+            print("data invalida")
+            continue
+    return data
