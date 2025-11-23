@@ -32,7 +32,7 @@ def validar_nova_data():
     while True:
         try:
             # tenta transformar a data, caso consiga vai retornar, se nao conseguir vai pedir outra data
-            data = input("Inserir nova data (formato DD/MM/AAAA): ")
+            data = input("Nova data do evento (formato DD/MM/AAAA): ")
             evento = datetime.strptime(data, "%d/%m/%Y")
             agora = datetime.now()
             if (evento - agora).days > 0:
@@ -45,3 +45,12 @@ def validar_nova_data():
             print("data invalida")
             continue
     return data
+def validar_novo_orcamento():
+    while True:
+        try:
+            orcamento = float(input("Novo orçamento do evento: "))
+            break
+        except valueError:
+            print("valor invalido")
+            continue
+    return orcamento
