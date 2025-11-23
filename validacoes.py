@@ -23,7 +23,7 @@ def validar_orcamento():
         try:
             orcamento = float(input("qual o orcamento do evento: "))
             break
-        except:
+        except valueError:
             print("valor invalido")
             continue
     return orcamento
