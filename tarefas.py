@@ -98,7 +98,7 @@ def menu_tarefas(repositorio):
             print(f"\n1. {sugestao_decor}")
             escolha = input(">> Deseja orçar essa decoração? (s/n): ").lower()
             if escolha == "s":
-                nome_tarefa = sugestao_decor.replace("Sugestão de ", "")
+                nome_tarefa = sugestao_decor
                 valor = validar_orcamento("   Quanto planeja gastar com isso? R$ ")
                 repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
                 print("   [Item adicionado ao orçamento!]")
@@ -107,7 +107,7 @@ def menu_tarefas(repositorio):
             print(f"\n2. {sugestao_entreten}")
             escolha = input(">> Deseja orçar esse entretenimento? (s/n): ").lower()
             if escolha == "s":
-                nome_tarefa = sugestao_entreten.replace("Sugestão de ", "")
+                nome_tarefa = sugestao_entreten
                 valor = validar_orcamento("   Quanto planeja gastar com isso? R$ ")
                 repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
                 print("   [Item adicionado ao orçamento!]")
@@ -117,7 +117,7 @@ def menu_tarefas(repositorio):
             print(f"   -> {sugestao_cardapio}")
             escolha = input(">> Deseja orçar esse cardápio? (s/n): ").lower()
             if escolha == "s":
-                nome_tarefa = sugestao_cardapio.replace("Sugestão de ", "")
+                nome_tarefa = sugestao_cardapio
                 valor = validar_orcamento("   Quanto planeja gastar com alimentação? R$ ")
                 repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
                 print("   [Item adicionado ao orçamento!]")
