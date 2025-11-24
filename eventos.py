@@ -29,7 +29,7 @@ def display(nome, repositorio):
     data = repositorio[nome][1]
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
-    convid= repositorio[nome][4]
+    convid = repositorio[nome][4]
     print(f"Nome: {nome}")
     print(f"Tipo: {tipo}")
     print(f"Data: {data}")
@@ -43,7 +43,7 @@ def display_arquivo(nome, repositorio):
     data = repositorio[nome][1]
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
-    convid= repositorio[nome][4]
+    convid = repositorio[nome][4]
     adc_arquivo(nome, tipo, local, orca, data, convid)
 
 
@@ -74,7 +74,7 @@ def alterador(repositorio):
                 data = repositorio[chave][1]
                 local = repositorio[chave][2]
                 orca = repositorio[chave][3]
-                convid= repositorio[chave][4]
+                convid = repositorio[chave][4]
                 repositorio.pop(chave)
                 novo_nome = input("Digite o novo nome do evento: ")  # Peço o novo nome
                 repositorio[novo_nome] = [
@@ -82,16 +82,16 @@ def alterador(repositorio):
                     data,
                     local,
                     orca,
-                    convid
+                    convid,
                 ]  # Crio um novo usando as variaveis que guardam as caracteristicas antigas
-            elif alterar == "2": # A Partir daqui, só precisa alterar o tipo requisitado e não mudar a chave
+            elif alterar == "2":  # A Partir daqui, só precisa alterar o tipo requisitado e não mudar a chave
                 novo_tipo = input("Novo tipo de evento: ")
                 repositorio[chave][0] = novo_tipo
             elif alterar == "3":
                 nova_data = validar_nova_data()
                 repositorio[chave][1] = nova_data
             elif alterar == "4":
-                novo_local=input("Novo local do evento: ")
+                novo_local = input("Novo local do evento: ")
                 repositorio[chave][2] = novo_local
             elif alterar == "5":
                 novo_orca = validar_novo_orcamento()

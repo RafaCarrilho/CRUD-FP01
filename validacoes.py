@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def validar_data():
     while True:
         try:
@@ -18,6 +19,7 @@ def validar_data():
             continue
     return data
 
+
 def validar_orcamento():
     while True:
         try:
@@ -27,6 +29,7 @@ def validar_orcamento():
             print("valor inválido")
             continue
     return orcamento
+
 
 def validar_nova_data():
     while True:
@@ -45,7 +48,8 @@ def validar_nova_data():
             print("data inválida")
             continue
     return data
-    
+
+
 def validar_novo_orcamento():
     while True:
         try:
@@ -55,6 +59,7 @@ def validar_novo_orcamento():
             print("valor inválido")
             continue
     return orcamento
+
 
 def validar_convidados():
     while True:

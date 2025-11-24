@@ -9,14 +9,15 @@ from eventos import (
     deletador,
 )
 
-os.system("cls")
+
+def limpar_tela():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
+limpar_tela()
 repositorio = {}
 while True:
-    options = input(
-        "Digite:\n'1' para Criar\n'2' para Ler\n'3' para Alterar\n'4' para Deletar\n'0' para Encerrar\n"
-    )
+    options = input("Digite:\n'1' para Criar\n'2' para Ler\n'3' para Alterar\n'4' para Deletar\n'0' para Encerrar\n")
     if options == "1":
         lista_recebida = create()
         repositorio[lista_recebida[0]] = lista_recebida[
