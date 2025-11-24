@@ -59,7 +59,7 @@ def menu_tarefas(repositorio):
 
         print("1. Adicionar Tarefa/Despesa")
         print("2. Remover Tarefa")
-        print("3. Ver Sugestões da CarralIA")
+        print("3. Assistente de Planejamento (Sugestões com Carral_IA)")
         print("0. Voltar")
         opcao = input("> ")
 
@@ -90,15 +90,40 @@ def menu_tarefas(repositorio):
             tipo_evento = repositorio[nome][0]
             qtd_convidados = repositorio[nome][4]
 
-            print("\n" + "=" * 30)
-            print(f"Dicas para seu evento de {tipo_evento}:")
+            print("\n" + "=" * 40)
+            print(f"Carral_IA: Dicas para seu evento de {tipo_evento}.")
+            print("=" * 40)
 
-            print("\n" + sugerir_decoracao(tipo_evento))
-            print(sugerir_entreten(tipo_evento))
-            print(sugerir_cardapio(tipo_evento, qtd_convidados))
+            sugestao_decor = sugerir_decoracao(tipo_evento)
+            print(f"\n1. {sugestao_decor}")
+            escolha = input(">> Deseja orçar essa decoração? (s/n): ").lower()
+            if escolha == "s":
+                nome_tarefa = sugestao_decor.replace("Sugestão de ", "")
+                valor = validar_orcamento("   Quanto planeja gastar com isso? R$ ")
+                repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
+                print("   [Item adicionado ao orçamento!]")
 
-            print("=" * 30)
-            input("[Pressione Enter para continuar]")
+            sugestao_entreten = sugerir_entreten(tipo_evento)
+            print(f"\n2. {sugestao_entreten}")
+            escolha = input(">> Deseja orçar esse entretenimento? (s/n): ").lower()
+            if escolha == "s":
+                nome_tarefa = sugestao_entreten.replace("Sugestão de ", "")
+                valor = validar_orcamento("   Quanto planeja gastar com isso? R$ ")
+                repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
+                print("   [Item adicionado ao orçamento!]")
+
+            print("\n3. Gerando sugestão de cardápio...")
+            sugestao_cardapio = sugerir_cardapio(tipo_evento, qtd_convidados)
+            print(f"   -> {sugestao_cardapio}")
+            escolha = input(">> Deseja orçar esse cardápio? (s/n): ").lower()
+            if escolha == "s":
+                nome_tarefa = sugestao_cardapio.replace("Sugestão de ", "")
+                valor = validar_orcamento("   Quanto planeja gastar com alimentação? R$ ")
+                repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor})
+                print("   [Item adicionado ao orçamento!]")
+
+            print("\n" + "=" * 40)
+            input("Sugestões finalizadas! Pressione Enter para ver o saldo atualizado.")
 
         elif opcao == "0":
             break

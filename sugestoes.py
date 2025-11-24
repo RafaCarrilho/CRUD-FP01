@@ -222,7 +222,7 @@ def sugerir_cardapio(tipo_de_evento, convidados):
     else:
         evento = opcoes["generico"]
 
-    restricao = input("Existe alguma restrição ao cardápio? (Vegano, vegetariano, kosher ou halal)\n> ").lower()
+    restricao = input(">> Existe alguma restrição ao cardápio? (Vegano, vegetariano, kosher ou halal): ").lower()
 
     if restricao in evento:
         cardapio = evento[restricao]
