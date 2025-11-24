@@ -44,11 +44,22 @@ def menu_tarefas(repositorio):
         orcamento = repositorio[nome][3]
         saldo = orcamento - total_gasto
 
-        print(f"\n--- Gerenciador: {nome.upper()} ---")
-        print(f"Orçamento: R$ {orcamento:.2f}")
-        print(f"Gasto Atual: R$ {total_gasto:.2f}")
-        print(f"Saldo: R$ {saldo:.2f}")
-        print("-" * 30)
+        if total_gasto < orcamento:
+
+            print(f"\n--- Gerenciador: {nome.upper()} ---")
+            print(f"Orçamento: R$ {orcamento:.2f}")
+            print(f"Gasto Atual: R$ {total_gasto:.2f}")
+            print(f"Saldo: R$ {saldo:.2f}")
+            print("-" * 30)
+
+        elif total_gasto > orcamento:
+
+            print(f"\n--- Gerenciador: {nome.upper()} ---")
+            print(f"Orçamento: R$ {orcamento:.2f}")
+            print(f"Gasto Atual: R$ {total_gasto:.2f}")
+            print(f"Saldo: R$ {saldo:.2f}")
+            print("\n---ATENCAO!---\n o orçamento estourou\nsugerimos que seja feito um reajuste")
+            print("-" * 30)
 
         if not tarefas:
             print("  (Nenhuma despesa cadastrada)")
