@@ -10,11 +10,11 @@ def validar_data(mensagem):
             if (evento - agora).days > 0:
                 break
             else:
-                print("data invalida")
+                print("data inválida")
                 continue
         except ValueError:
             # Se der erro, o formato ou a data são inválidos
-            print("data invalida")
+            print("data inválida")
             continue
     return data
 
@@ -24,7 +24,7 @@ def validar_orcamento(mensagem):
             orcamento = float(input(mensagem))
             break
         except ValueError:
-            print("valor invalido")
+            print("valor inválido")
             continue
     return orcamento
 
