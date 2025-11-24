@@ -1,5 +1,5 @@
 from arquivos import adc_arquivo
-from validacoes import validar_data, validar_orcamento, validar_nova_data, validar_novo_orcamento
+from validacoes import validar_data, validar_orcamento
 
 
 def create():
@@ -10,13 +10,13 @@ def create():
     tipo_de_evento = input("Tipo de evento? (Caso não saiba, digite '-')")
     lista.append(tipo_de_evento)
 
-    data_do_evento = validar_data()
+    data_do_evento = validar_data("Quando é a data do evento? (formato DD/MM/AAAA): ")
     lista.append(data_do_evento)
 
     local_de_evento = input("Local de evento? ")
     lista.append(local_de_evento)
 
-    orca_de_evento = validar_orcamento()
+    orca_de_evento = validar_orcamento("Orçamento do evento: ")
     lista.append(orca_de_evento)
     return lista
 
@@ -80,13 +80,13 @@ def alterador(repositorio):
                 novo_tipo = input("Novo tipo de evento: ")
                 repositorio[chave][0] = novo_tipo
             elif alterar == "3":
-                nova_data = validar_nova_data()
+                nova_data = validar_data("Nova data do evento (formato DD/MM/AAAA): ")
                 repositorio[chave][1] = nova_data
             elif alterar == "4":
                 novo_local=input("Novo local do evento: ")
                 repositorio[chave][2] = novo_local
             elif alterar == "5":
-                novo_orca = validar_orcamento()
+                novo_orca = validar_orcamento("Novo orçamento do evento: ")
                 repositorio[chave][3] = novo_orca
     except:
         print()
