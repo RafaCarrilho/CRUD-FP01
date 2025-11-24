@@ -21,21 +21,27 @@ def carregar_dados():
     if os.path.exists("eventos.csv"):
         try:
             with open("eventos.csv", "r", encoding="utf8") as file:
-                linhas = file.readlines()
-                for i in range(0, len(linhas), 6):
-                    try:
-                        if i + 4 < len(linhas):
-                            nome = linhas[i].split(": ")[1].strip().lower()
-                            tipo = linhas[i + 1].split(": ")[1].strip()
-                            data = linhas[i + 2].split(": ")[1].strip()
-                            local = linhas[i + 3].split(": ")[1].strip()
-                            orca = float(linhas[i + 4].split(": ")[1].strip())
+                linhas = [linha.strip() for linha in file.readlines() if linha.strip()]
 
-                            repositorio_temp[nome] = [tipo, data, local, orca, []]
-                    except (IndexError, ValueError):
+                step = 6
+
+                for i in range(0, len(linhas), step):
+                    try:
+                        if i + 5 < len(linhas):
+                            nome = linhas[i].split(":")[1].strip().lower()
+                            tipo = linhas[i + 1].split(":")[1].strip()
+                            data = linhas[i + 2].split(":")[1].strip()
+                            local = linhas[i + 3].split(":")[1].strip()
+                            orca = float(linhas[i + 4].split(":")[1].strip())
+                            convid = int(linhas[i + 5].split(":")[1].strip())
+
+                            repositorio_temp[nome] = [tipo, data, local, orca, convid, []]
+
+                    except (IndexError, ValueError) as e:
+                        print(f"Erro ao ler registro na linha {i}: {e}")
                         continue
         except Exception as e:
-            print(f"Erro ao carregar eventos: {e}")
+            print(f"Erro crítico ao abrir arquivo: {e}")
 
     carregar_tarefas(repositorio_temp)
 
@@ -46,13 +52,15 @@ def salvar_tudo(repositorio):
     try:
         with open("eventos.csv", "w", encoding="utf8") as file:
             pass
+
         print("Salvando eventos...")
         for nome in repositorio:
             display_arquivo(nome, repositorio)
-    except Exception as e:
-        print(f"Erro ao salvar eventos: {e}")
 
-    arquivoTarefas(repositorio)
+        arquivoTarefas(repositorio)
+
+    except Exception as e:
+        print(f"Erro ao salvar dados: {e}")
 
 
 # --- Início do Programa ---
@@ -74,7 +82,8 @@ while True:
 
     if options == "1":
         lista = create()
-        repositorio[lista[0]] = lista[1:6]
+
+        repositorio[lista[0]] = lista[1:]
         print("Evento criado com sucesso!")
 
     elif options == "2":

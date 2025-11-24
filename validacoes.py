@@ -1,39 +1,47 @@
 from datetime import datetime
 
+
 def validar_data(mensagem):
     while True:
         try:
-            # tenta transformar a data, caso consiga vai retornar, se nao conseguir vai pedir outra data
             data = input(mensagem)
-            evento = datetime.strptime(data, "%d/%m/%Y")
-            agora = datetime.now()
-            if (evento - agora).days >= 0:
+            evento = datetime.strptime(data, "%d/%m/%Y").date()
+            agora = datetime.now().date()
+
+            if evento >= agora:
                 break
             else:
-                print("data inválida")
+                print("Erro: A data do evento não pode ser no passado!")
                 continue
         except ValueError:
-            # Se der erro, o formato ou a data são inválidos
-            print("data inválida")
+            print("Erro: Formato inválido ou data inexistente. Use DD/MM/AAAA.")
             continue
     return data
+
 
 def validar_orcamento(mensagem):
     while True:
         try:
             orcamento = float(input(mensagem))
-            break
+            if orcamento >= 0:
+                break
+            else:
+                print("Erro: O orçamento não pode ser negativo.")
         except ValueError:
-            print("valor inválido")
+            print("Erro: Digite um valor numérico válido (use ponto para centavos).")
             continue
     return orcamento
+
 
 def validar_convidados():
     while True:
         try:
-            convidados = int(input("quantos convidados para o evento: "))
-            break
+            convidados = int(input("Quantos convidados para o evento: "))
+            if convidados >= 0:
+                break
+            else:
+                print("Erro: O número de convidados não pode ser negativo.")
         except ValueError:
-            print("valor inválido")
+            print("Erro: Digite um número inteiro válido.")
             continue
     return convidados
