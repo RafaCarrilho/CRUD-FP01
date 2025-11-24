@@ -45,6 +45,7 @@ def validar_nova_data():
             print("data inválida")
             continue
     return data
+    
 def validar_novo_orcamento():
     while True:
         try:
