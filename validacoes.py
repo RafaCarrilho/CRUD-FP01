@@ -7,7 +7,7 @@ def validar_data(mensagem):
             data = input(mensagem)
             evento = datetime.strptime(data, "%d/%m/%Y")
             agora = datetime.now()
-            if (evento - agora).days > 0:
+            if (evento - agora).days >= 0:
                 break
             else:
                 print("data inválida")
@@ -28,3 +28,12 @@ def validar_orcamento(mensagem):
             continue
     return orcamento
 
+def validar_convidados():
+    while True:
+        try:
+            convidados = int(input("quantos convidados para o evento: "))
+            break
+        except ValueError:
+            print("valor inválido")
+            continue
+    return convidados
