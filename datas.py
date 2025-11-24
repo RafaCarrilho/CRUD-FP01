@@ -16,4 +16,5 @@ def contagem_regressiva(data_do_evento):
     if total_meses >= 1:
         diferenca_dias = diferenca_dias - (total_meses * 30)
 
-    return total_meses, diferenca_dias
+
+    return f"Faltam {total_meses} meses e {diferenca_dias} dias!"
