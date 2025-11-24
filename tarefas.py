@@ -24,19 +24,6 @@ def carregar_tarefas(repositorio):
         print(f"Erro ao carregar tarefas: {e}")
 
 
-def salvar_tarefas(repositorio):
-    try:
-        with open("tarefas.csv", "w", encoding="utf8") as file:
-            for nome_evento, dados in repositorio.items():
-                tarefas = dados[4]
-                for t in tarefas:
-                    linha = f"{nome_evento};{t['nome']};{t['valor']}\n"
-                    file.write(linha)
-        print("Tarefas salvas em 'tarefas.csv'!")
-    except Exception as e:
-        print(f"Erro ao salvar tarefas: {e}")
-
-
 def menu_tarefas(repositorio):
     print("Para qual evento deseja gerenciar tarefas?")
     listar_eventos(repositorio)
