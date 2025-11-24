@@ -10,11 +10,11 @@ def validar_data():
             if (evento - agora).days > 0:
                 break
             else:
-                print("data invalida")
+                print("data inválida")
                 continue
         except ValueError:
             # Se der erro, o formato ou a data são inválidos
-            print("data invalida")
+            print("data inválida")
             continue
     return data
 
@@ -24,7 +24,7 @@ def validar_orcamento():
             orcamento = float(input("qual o orcamento do evento: "))
             break
         except ValueError:
-            print("valor invalido")
+            print("valor inválido")
             continue
     return orcamento
 
@@ -38,11 +38,11 @@ def validar_nova_data():
             if (evento - agora).days > 0:
                 break
             else:
-                print("data invalida")
+                print("data inválida")
                 continue
         except ValueError:
             # Se der erro, o formato ou a data são inválidos
-            print("data invalida")
+            print("data inválida")
             continue
     return data
     
@@ -52,6 +52,16 @@ def validar_novo_orcamento():
             orcamento = float(input("Novo orçamento do evento: "))
             break
         except ValueError:
-            print("valor invalido")
+            print("valor inválido")
             continue
     return orcamento
+
+def validar_convidados():
+    while True:
+        try:
+            convidados = int(input("quantos convidados para o evento: "))
+            break
+        except ValueError:
+            print("valor inválido")
+            continue
+    return convidados

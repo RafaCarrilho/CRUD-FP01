@@ -20,7 +20,7 @@ while True:
     if options == "1":
         lista_recebida = create()
         repositorio[lista_recebida[0]] = lista_recebida[
-            1:5
+            1:6
         ]  # Chave do repositório é o primeiro membro da lista, vulgo o nome do evento
         print(repositorio)
 

@@ -1,5 +1,5 @@
 from arquivos import adc_arquivo
-from validacoes import validar_data, validar_orcamento, validar_nova_data, validar_novo_orcamento
+from validacoes import validar_data, validar_orcamento, validar_nova_data, validar_novo_orcamento, validar_convidados
 
 
 def create():
@@ -18,6 +18,9 @@ def create():
 
     orca_de_evento = validar_orcamento()
     lista.append(orca_de_evento)
+
+    convidados_de_evento = validar_convidados()
+    lista.append(convidados_de_evento)
     return lista
 
 
@@ -26,11 +29,13 @@ def display(nome, repositorio):
     data = repositorio[nome][1]
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
+    convid= repositorio[nome][4]
     print(f"Nome: {nome}")
     print(f"Tipo: {tipo}")
     print(f"Data: {data}")
     print(f"Local: {local}")
-    print(f"Orçamento: {orca}\n")
+    print(f"Orçamento: {orca}")
+    print(f"Convidados: {convid}\n")
 
 
 def display_arquivo(nome, repositorio):
@@ -38,7 +43,8 @@ def display_arquivo(nome, repositorio):
     data = repositorio[nome][1]
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
-    adc_arquivo(nome, tipo, local, orca, data)
+    convid= repositorio[nome][4]
+    adc_arquivo(nome, tipo, local, orca, data, convid)
 
 
 def listar_eventos(repositorio):
@@ -59,7 +65,7 @@ def alterador(repositorio):
         if chave in repositorio:  # Verifica se a chave solicitada está no repositório
             display(chave, repositorio)
             alterar = input(
-                "Qual desses vamos alterar?\n'1' para Nome\n'2' para Tipo\n'3' para Data\n'4' para Local\n'5' para Orçamento"
+                "Qual desses vamos alterar?\n'1' para Nome\n'2' para Tipo\n'3' para Data\n'4' para Local\n'5' para Orçamento\n'6' para Convidados"
             )
             if (
                 alterar == "1"
@@ -68,6 +74,7 @@ def alterador(repositorio):
                 data = repositorio[chave][1]
                 local = repositorio[chave][2]
                 orca = repositorio[chave][3]
+                convid= repositorio[chave][4]
                 repositorio.pop(chave)
                 novo_nome = input("Digite o novo nome do evento: ")  # Peço o novo nome
                 repositorio[novo_nome] = [
@@ -75,6 +82,7 @@ def alterador(repositorio):
                     data,
                     local,
                     orca,
+                    convid
                 ]  # Crio um novo usando as variaveis que guardam as caracteristicas antigas
             elif alterar == "2": # A Partir daqui, só precisa alterar o tipo requisitado e não mudar a chave
                 novo_tipo = input("Novo tipo de evento: ")
@@ -86,8 +94,11 @@ def alterador(repositorio):
                 novo_local=input("Novo local do evento: ")
                 repositorio[chave][2] = novo_local
             elif alterar == "5":
-                novo_orca = validar_orcamento()
+                novo_orca = validar_novo_orcamento()
                 repositorio[chave][3] = novo_orca
+            elif alterar == "6":
+                novo_convid = validar_convidados()
+                repositorio[chave][4] = novo_convid
     except:
         print()
 
