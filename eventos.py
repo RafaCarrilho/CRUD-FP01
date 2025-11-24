@@ -14,9 +14,6 @@ def create():
     data_do_evento = validar_data("Quando é a data do evento? (formato DD/MM/AAAA): ")
     lista.append(data_do_evento)
 
-    contagem = contagem_regressiva()
-    lista.append(contagem)
-
     local_de_evento = input("Local de evento? ")
     lista.append(local_de_evento)
 
@@ -31,12 +28,14 @@ def create():
 def display(nome, repositorio):
     tipo = repositorio[nome][0]
     data = repositorio[nome][1]
+    contagem = contagem_regressiva(data)
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
     convid = repositorio[nome][4]
     print(f"Nome: {nome}")
     print(f"Tipo: {tipo}")
     print(f"Data: {data}")
+    print(contagem)
     print(f"Local: {local}")
     print(f"Orçamento: {orca}")
     print(f"Convidados: {convid}\n")
@@ -45,6 +44,7 @@ def display(nome, repositorio):
 def display_arquivo(nome, repositorio):
     tipo = repositorio[nome][0]
     data = repositorio[nome][1]
+    
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
     convid = repositorio[nome][4]

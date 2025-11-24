@@ -26,10 +26,12 @@ while True:
         print(repositorio)
 
     elif options == "2":
+
         try:
             file = open("eventos.csv", "w", encoding="utf8")
             for nome in repositorio:  # Vamos ver todas as chaves e seus filhos por nome
                 display_arquivo(nome, repositorio)
+                display(nome, repositorio)
             file.close()
         except:
             print("Algum Erro")
