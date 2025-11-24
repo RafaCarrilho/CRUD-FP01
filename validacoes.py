@@ -7,7 +7,7 @@ def validar_data(mensagem):
             data = input(mensagem)
             evento = datetime.strptime(data, "%d/%m/%Y")
             agora = datetime.now()
-            if (evento - agora).days > 0:
+            if (evento - agora).days >= 0:
                 break
             else:
                 print("data inválida")
