@@ -1,4 +1,4 @@
-from arquivos import adc_arquivo
+from arquivos import arquivoEventos
 from datas import contagem_regressiva
 from validacoes import validar_data, validar_orcamento, validar_convidados
 
@@ -44,11 +44,11 @@ def display(nome, repositorio):
 def display_arquivo(nome, repositorio):
     tipo = repositorio[nome][0]
     data = repositorio[nome][1]
-    
+
     local = repositorio[nome][2]
     orca = repositorio[nome][3]
     convid = repositorio[nome][4]
-    adc_arquivo(nome, tipo, local, orca, data, convid)
+    arquivoEventos(nome, tipo, local, orca, data, convid)
 
 
 def listar_eventos(repositorio):
