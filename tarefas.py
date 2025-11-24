@@ -1,5 +1,6 @@
 from validacoes import validar_orcamento
 from eventos import listar_eventos
+from sugestoes import sugerir_decoracao, sugerir_cardapio, sugerir_entreten
 
 
 def carregar_tarefas(repositorio):
@@ -58,6 +59,7 @@ def menu_tarefas(repositorio):
 
         print("1. Adicionar Tarefa/Despesa")
         print("2. Remover Tarefa")
+        print("3. Ver Sugestões da CarralIA")
         print("0. Voltar")
         opcao = input("> ")
 
@@ -83,6 +85,20 @@ def menu_tarefas(repositorio):
                     print("Número inválido.")
             except ValueError:
                 print("Digite um número válido.")
+
+        elif opcao == "3":
+            tipo_evento = repositorio[nome][0]
+            qtd_convidados = repositorio[nome][4]
+
+            print("\n" + "=" * 30)
+            print(f"Dicas para seu evento de {tipo_evento}:")
+
+            print("\n" + sugerir_decoracao(tipo_evento))
+            print(sugerir_entreten(tipo_evento))
+            print(sugerir_cardapio(tipo_evento, qtd_convidados))
+
+            print("=" * 30)
+            input("[Pressione Enter para continuar]")
 
         elif opcao == "0":
             break
