@@ -1,5 +1,6 @@
 from arquivos import adc_arquivo
 from validacoes import validar_data, validar_orcamento
+from datas import contagem_regressiva
 
 
 def create():
@@ -12,6 +13,9 @@ def create():
 
     data_do_evento = validar_data("Quando é a data do evento? (formato DD/MM/AAAA): ")
     lista.append(data_do_evento)
+
+    contagem = contagem_regressiva()
+    lista.append(contagem)
 
     local_de_evento = input("Local de evento? ")
     lista.append(local_de_evento)
