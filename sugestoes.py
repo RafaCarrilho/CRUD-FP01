@@ -30,7 +30,7 @@ def sugerir_decoracao(tipo_de_evento):
 
     sugestao = random.choice(evento)
 
-    return f"Sugestão de Decoração: {sugestao}"
+    return f"Decoração: {sugestao}"
 
 
 def sugerir_cardapio(tipo_de_evento, convidados):
@@ -236,7 +236,7 @@ def sugerir_cardapio(tipo_de_evento, convidados):
 
     sugestao = random.choice(cardapio[tamanho])
 
-    return f"Sugestão de Cardápio ({tamanho}): {sugestao}"
+    return f"Cardápio ({tamanho}): {sugestao}"
 
 
 def sugerir_entreten(tipo_de_evento):
@@ -268,4 +268,4 @@ def sugerir_entreten(tipo_de_evento):
 
     sugestao = random.choice(evento)
 
-    return f"Sugestão de Entretenimento: {sugestao}"
+    return f"Entretenimento: {sugestao}"
