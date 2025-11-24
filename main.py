@@ -23,12 +23,11 @@ while True:
         repositorio[lista_recebida[0]] = lista_recebida[
             1:6
         ]  # Chave do repositório é o primeiro membro da lista, vulgo o nome do evento
-        print(repositorio)
 
     elif options == "2":
 
         try:
-            file = open("eventos.csv", "w", encoding="utf8")
+            file = open("eventos.csv", "r", encoding="utf8")
             for nome in repositorio:  # Vamos ver todas as chaves e seus filhos por nome
                 display_arquivo(nome, repositorio)
                 display(nome, repositorio)
