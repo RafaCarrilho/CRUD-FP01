@@ -1,6 +1,5 @@
 from validacoes import validar_orcamento
-
-from eventos import display, listar_eventos
+from eventos import listar_eventos
 
 
 def carregar_tarefas(repositorio):
@@ -16,16 +15,20 @@ def carregar_tarefas(repositorio):
                 if len(dados) == 3:
                     nome_evento = dados[0].lower()
                     nome_tarefa = dados[1]
-                    valor_tarefa = float(dados[2])
+                    try:
+                        valor_tarefa = float(dados[2])
+                    except ValueError:
+                        continue
 
                     if nome_evento in repositorio:
-                        repositorio[nome_evento][4].append({"nome": nome_tarefa, "valor": valor_tarefa})
+                        if len(repositorio[nome_evento]) > 5:
+                            repositorio[nome_evento][5].append({"nome": nome_tarefa, "valor": valor_tarefa})
     except Exception as e:
         print(f"Erro ao carregar tarefas: {e}")
 
 
 def menu_tarefas(repositorio):
-    print("Para qual evento deseja gerenciar tarefas?")
+    print("\nPara qual evento deseja gerenciar tarefas?")
     listar_eventos(repositorio)
     nome = input("Nome do evento: ").lower()
 
@@ -34,8 +37,25 @@ def menu_tarefas(repositorio):
         return
 
     while True:
-        display(nome, repositorio)
-        print("--- Gerenciador de Tarefas ---")
+        tarefas = repositorio[nome][5]
+
+        total_gasto = sum(t["valor"] for t in tarefas)
+        orcamento = repositorio[nome][3]
+        saldo = orcamento - total_gasto
+
+        print(f"\n--- Gerenciador: {nome.upper()} ---")
+        print(f"Orçamento: R$ {orcamento:.2f}")
+        print(f"Gasto Atual: R$ {total_gasto:.2f}")
+        print(f"Saldo: R$ {saldo:.2f}")
+        print("-" * 30)
+
+        if not tarefas:
+            print("  (Nenhuma despesa cadastrada)")
+        else:
+            for i, t in enumerate(tarefas):
+                print(f"  {i + 1}. {t['nome']} -> R$ {t['valor']:.2f}")
+        print("-" * 30)
+
         print("1. Adicionar Tarefa/Despesa")
         print("2. Remover Tarefa")
         print("0. Voltar")
@@ -43,22 +63,22 @@ def menu_tarefas(repositorio):
 
         if opcao == "1":
             nome_tarefa = input("Nome da despesa: ")
-            nome_tarefa = nome_tarefa.replace(";", ",")  # Isso aqui é importante pq eu estou usando o ; no .split()
+            nome_tarefa = nome_tarefa.replace(";", ",")
             valor_tarefa = validar_orcamento("Valor: R$ ")
 
-            repositorio[nome][4].append({"nome": nome_tarefa, "valor": valor_tarefa})
+            repositorio[nome][5].append({"nome": nome_tarefa, "valor": valor_tarefa})
             print("Tarefa adicionada!")
 
         elif opcao == "2":
-            tarefas = repositorio[nome][4]
             if not tarefas:
                 print("Não há tarefas para remover.")
                 continue
             try:
-                index = int(input("Número da tarefa para remover: ")) - 1
+                numero = int(input("Número da tarefa para remover: "))
+                index = numero - 1
                 if 0 <= index < len(tarefas):
                     removido = tarefas.pop(index)
-                    print(f"{removido['nome']} removida!")
+                    print(f"'{removido['nome']}' removida!")
                 else:
                     print("Número inválido.")
             except ValueError:
