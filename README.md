@@ -1,8 +1,8 @@
 
 # 🎉 Organiza Festa
 
-**Organiza Festa** é um sistema simples de **planejamento de eventos** desenvolvido em **Python** para ser executado no terminal.  
-O objetivo é ajudar pessoas como Cláudia — que adoram organizar festas, mas têm dificuldade em controlar convidados, tarefas, fornecedores e orçamentos — a manter tudo sob controle de forma prática e eficiente.
+**Organiza Festa** é um sistema simples de **planejamento de eventos** desenvolvido em **Python** para ser executado e ter sua navegação através do terminal.  
+O objetivo é ajudar pessoas no papel de organizadores de eventos com as diversas áreas de atuação — como controlar convidados, tarefas, fornecedores e orçamentos — ajudando a manter tudo sob controle de forma prática e eficiente.
 
 ---
 
@@ -17,6 +17,7 @@ Utiliza de funções para **criar, visualizar, editar e excluir** eventos com as
 - Data  
 - Local  
 - Orçamento disponível  
+- Número de Convidados  
 
 ### 💸 2. Tarefas e Orçamento
 
@@ -30,30 +31,25 @@ Utiliza de funções para **criar, visualizar, editar e excluir** eventos com as
 
 ### 💾 4. Armazenamento de Dados
 
-- Todos os dados são **salvos em arquivos `.csv` ou `.txt`**, garantindo acesso posterior ao histórico de eventos e tarefas.
+- Todos os dados são **salvos em arquivos `.csv`**, garantindo acesso posterior ao histórico de eventos e tarefas e garantindo a continuação das informações dos eventos após o programa ser reiniciado.
 
 ### 💡 5. Sugestões Personalizadas
 
 - Com base no tipo do evento e número de convidados, o sistema sugere:
-  - Fornecedores  
   - Decoração  
   - Cardápio  
-  - Atividades para entreter os convidados  
-
-### 🧩 6. Funcionalidade Extra
-
-- Espaço reservado para a **criatividade da equipe**, com recursos adicionais livres.
+  - Entretenimento  
 
 ---
 
 ## ⚙️ Requisitos Técnicos
 
-- Desenvolvido em **Python puro**, **sem uso de bibliotecas externas** (exceto as listadas abaixo).  
+- Desenvolvido em **Python**, **sem uso de bibliotecas externas** (exceto as listadas abaixo).  
 - Interface por **linha de comando (terminal)**.
 
 ### Bibliotecas utilizadas
 
-- `os` → para limpar a tela (`os.system("cls")` ou `os.system("clear")`)  
+- `os` → para limpar o terminal
 - `datetime` → para manipular datas  
 - `random` → para sugestões e funcionalidades dinâmicas  
 
@@ -61,15 +57,15 @@ Utiliza de funções para **criar, visualizar, editar e excluir** eventos com as
 
 ## 🧠 Boas Práticas Exigidas
 
-O código deve:
+O código contém:
 
-- Ser **modularizado** (uso de funções para evitar repetições)  
-- Ter **tratamento de exceções**  
-- Manter **legibilidade**, com nomes claros de variáveis e funções  
+- **Modularização** (uso de funções para evitar repetições)  
+- **Tratamento de exceções**  
+- **Código legivel**, com nomes claros de variáveis, funções e aplicação das boas práticas restantes
 
 ---
 
-## Equipe de Desenvolvimento
+## Grupo 03
 
 - Integrante 1: Arthur Vitorino
 - Integrante 2: Juan Riquelme
@@ -78,7 +74,55 @@ O código deve:
 - Integrante 5: Rafael Carrilho
 - Integrante 6: Victor Carraly
 
+
+
+# Manual De Uso
+
+Este programa permite gerenciar eventos e tarefas através do terminal, utilizando o arquivo principal:
+- main.py
+
+### ▶️ Execução
+- Navegue até o arquivo main.py dentro da pasta CRUD-FP01 que você baixou.
+
+- Abra o terminal para o arquivo anteriormente mencionado!  
+
+
+### 🧭 Menu Principal
+Ao iniciar, o programa exibirá:  
+
+1 - Criar evento  
+2 - Listar eventos  
+3 - Alterar Dados do Evento  
+4 - Deletar Evento  
+5 - Gerenciar Tarefas e Gastos  
+6 - Salvar Tudo  
+0 - Sair 
+
+- Funções principais:
+
+  - Criar evento: cadastra um novo evento.
+
+  - Listar eventos: mostra eventos registrados.
+
+  - Alterar evento: permite modificar dados de um evento.
+
+  - Deletar Evento: Remove o evento anteriormente criado dos arquivos.
+
+  - Gerenciar tarefas: acessa um submenu para criar, listar, editar e excluir tarefas.
+
+  - Salvar tudo: grava manualmente as alterações nos arquivos .csv.
+
+### 📂 Armazenamento
+Todos os dados são automaticamente salvos nos arquivos
+
+- eventos.csv –> eventos cadastrados  
+- tarefas.csv –> tarefas cadastradas  
+
+### ❗ Importante
+- O programa salva automaticamente ao sair.  
+- Use apenas o terminal para interação com o programa!
+- Os arquivos.csv não devem ser editados manualmente devido a diferença de sua formatação.
+
 \
-\
-\
-[![guifi](https://media1.tenor.com/m/QhRC-boL1bUAAAAd/pear-running-away.gif)](https://docs.google.com/document/d/1xvYXM7tCDu6KCbbe0Si-3ugaNu-uH8AnQUj7vaEfAfA/edit?tab=t.0)
+[_Aperte aqui para ser redirecionado ao  
+documento de exigências para o Organiza Festa_](https://docs.google.com/document/d/1xvYXM7tCDu6KCbbe0Si-3ugaNu-uH8AnQUj7vaEfAfA/edit?tab=t.0)  
